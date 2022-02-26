@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Final_Project.Content.Models.OHS>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.o_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.h_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.s_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imagepath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Studname)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.o_id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.h_id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.s_id)
+    </td>
+    <td>
+        <img src="@item.imagepath" width="200px" height="200px" />
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Studname)
+    </td>
+
+</tr>
+}
+
+</table>

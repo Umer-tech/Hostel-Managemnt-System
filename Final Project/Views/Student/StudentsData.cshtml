@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Final_Project.Content.Models.Student>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.s_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.s_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.s_edu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.s_uni)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.s_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.s_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.s_edu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.s_uni)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

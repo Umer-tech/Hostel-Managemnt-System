@@ -1,0 +1,47 @@
+﻿@model Final_Project.Content.Models.OHS
+
+@if (Request.QueryString["OwnerID"] != null)
+{
+    <h3>Owner ID :@Request.QueryString["OwnerID"]</h3>
+}
+@if (Request.QueryString["h_id"] != null)
+{
+    <h3>Hostel Id :@Request.QueryString["h_id"]</h3>
+}
+<br />
+@if (Request.QueryString["hname"] != null)
+{
+    <h3>Hostel Name :@Request.QueryString["hname"]</h3>
+    <h3> ----- </h3>
+}
+
+@using (Html.BeginForm("StudentEntry", "OHS", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Shop Auto Parts</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.s_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.s_id, (List<SelectListItem>)ViewBag.studentsdata, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.s_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.imageFile, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.imageFile, new { Type = "File" })
+                @Html.ValidationMessageFor(model => model.imageFile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-dark" />
+            </div>
+        </div>
+    </div>
+}

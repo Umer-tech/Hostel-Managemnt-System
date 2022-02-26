@@ -1,0 +1,26 @@
+﻿<br />
+<br />
+<h2 style="text-align:center">Welocme "@Session["OwnerName"]"</h2>
+<div>
+    <center>
+        <br />
+        <br />
+
+        @using (Html.BeginForm("OwnerDashboard", "Owner", FormMethod.Post))
+        {
+
+            <br />
+            <br />
+            <span>     </span>
+            <input type="submit" name="btn" value="View Hostels" class="btn btn-dark" />
+            <span>     </span>
+            <input type="submit" name="btn" value="Add Hostel" class="btn btn-dark" />
+            <span>     </span>
+            <input type="submit" name="btn" value="View Students" class="btn btn-dark" />
+            <span>     </span>
+            <input type="submit" name="btn" value="Add Student" class="btn btn-dark" />
+
+        }
+    </center>
+
+</div>

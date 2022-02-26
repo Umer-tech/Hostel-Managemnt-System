@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Select";
+    var ownername = Session["OwnerName"];
+    var h_id = Request.QueryString["hid"];
+}
+
+}
+@if (Session["OwnerName"] != null)
+{
+    <h2>Owner Name :@Session["OwnerName"]</h2>
+}
+<br />
+@if (Request.QueryString["hid"] != null)
+{<b>Hostel ID :@Request.QueryString["hid"]   </b>}
+@if (Request.QueryString["hname"] != null)
+{
+    <b>Hostel Name:@Request.QueryString["hname"]    </b>
+}
+<br />
+<h3 style="background-color:#d39393">@Html.ActionLink("Add Students in Hostel ", "StudentEntry", "OHS", new {OwnerId= Session["OwnerID"], h_id = h_id, hname = Request.QueryString["hname"] }, null)</h3>
+<h3 style="background-color:#d39393">@Html.ActionLink("View Hostel Students", "ViewHostelStudents", "OHS", new { OwnerId = Session["OwnerID"], Hostelid = h_id, hname = Request.QueryString["hname"] }, null)</h3>

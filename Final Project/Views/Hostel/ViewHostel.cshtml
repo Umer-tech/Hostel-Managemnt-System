@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Final_Project.Content.Models.Hostel>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Hostel Id")
+        </th>
+        <th>
+            @Html.DisplayName("Hostel Name")
+        </th>
+        <th>
+            @Html.DisplayName("Hostel Address")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.h_id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.h_name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.h_address)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.h_id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.h_id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.h_id })
+    <td>
+        @Html.ActionLink("Add New Student", "Select", new { hid = item.h_id, hname = item.h_name})
+    </td>
+    </td>
+</tr>
+}
+
+</table>
